@@ -40,3 +40,5 @@ Sem conta, backend, serviços pagos, chaves, publicidade ou compras. Preferênci
 História fictícia, arte e áudio procedural próprios. [Assets e licenças](docs/assets.md), [design](docs/game-design.md) e [validação](docs/validation.md).
 
 Código MIT. A licença de inkjs acompanha o export em `third-party.txt`.
+
+![Uma visita concluída no Salão 17](docs/public-gameplay.png)

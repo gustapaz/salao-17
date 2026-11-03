@@ -15,6 +15,14 @@ Implementação inicial: `c3d8ecef5343646f465ced1200811c1f17ae40bc`. CI inicial 
 
 Gitleaks 8.30.1, regras externas e saída redigida: staged, histórico completo, export e clone novo do remoto sem achados. Configurações públicas: secret scanning, proteção de push e atualizações de segurança habilitadas. API GitHub confirmou somente `gustapaz` como contribuidor e autor/committer `Gustavo Paz <96732649+gustapaz@users.noreply.github.com>`.
 
-O build inicial publicado foi comparado byte a byte: cinco arquivos idênticos aos locais. A verificação será repetida no artefato final.
+O build inicial publicado foi comparado byte a byte: cinco arquivos idênticos aos locais. Após a correção `d7e8a691f3805b564f566a63bc7bd1b54a0e7680`, os cinco arquivos finais também corresponderam byte a byte ao export local (173.343 bytes). CI `41612838796` aprovado.
 
- Testes não constituem auditoria universal de navegadores, acessibilidade ou garantia de ausência de vulnerabilidades.
+Testes não constituem auditoria universal de navegadores, acessibilidade ou garantia de ausência de vulnerabilidades.
+
+## Conferência pública final
+
+- Dois finais de vitória reais pela interface: caderno (solo, 24 escolhas, três tentativas) e guardião (com pista, 20 escolhas, três tentativas). Derrota real com três validações erradas, registrando a segunda visita solo e mantendo uma vitória.
+- Final do guardião no build corrigido em 390 × 844: replay em bloco com 52 px, sem overflow horizontal ou alerta de falha. Desktop conferido após restaurar viewport. Screenshots `public-gameplay.png` e `public-mobile.png`.
+- Som e preferência de movimento alternados e preservados após reload; manual/Escape e retorno ao jogo conferidos. Ativação do áudio verificada sem avaliação auditiva humana.
+- Logs do navegador continham erros de uma extensão de busca e mensagens de canal da extensão; nenhum alerta de falha do jogo observado. Isso não equivale a console universalmente limpo.
+- Limites: sem telefone físico, Safari, leitor de tela completo ou prova de diversão por jogadores independentes. Não há save da visita em andamento nem garantia offline.
