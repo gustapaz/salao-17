@@ -1,0 +1,19 @@
+{
+  "name": "salao-17",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/compile.mjs && vite --host 127.0.0.1 --port 4233",
+    "preview": "vite preview --host 127.0.0.1 --port 4234",
+    "test": "node scripts/compile.mjs && node --test tests/*.test.ts",
+    "build": "node scripts/compile.mjs && tsc --noEmit && node scripts/licenses.mjs && vite build"
+  },
+  "dependencies": {
+    "inkjs": "2.4.0"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  }
+}

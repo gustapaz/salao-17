@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#11151e" />
+    <meta
+      name="description"
+      content="O museu guarda a última palavra. Explore Arquivo, Galeria e Oficina no Salão 17: um mistério narrativo com três enigmas e finais diferentes."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <link rel="icon" href="./favicon.svg" />
+    <title>Salão 17 — o museu guarda a última palavra</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a class="brand" href="./" aria-label="Salão 17 início"
+          ><span>SALÃO</span><b>17</b></a
+        ><span class="edition"
+          >UMA VISITA DEPOIS DO FIM.<br />FICÇÃO INTERATIVA / SEM
+          CRONÔMETRO</span
+        >
+        <nav aria-label="Controles gerais">
+          <button id="help">Manual ↗</button
+          ><button id="sound" aria-pressed="false">Som desligado</button
+          ><button id="motion" aria-pressed="false">Menos movimento</button>
+        </nav>
+      </header>
+      <div class="inventory" aria-label="Inventário da visita">
+        <span>SELOS RECUPERADOS <strong id="seal-count">0/3</strong></span>
+        <ol id="seals">
+          <li><i>C</i><span>COBRE</span></li>
+          <li><i>V</i><span>VIDRO</span></li>
+          <li><i>P</i><span>PEDRA</span></li>
+        </ol>
+        <span class="chances">TENTATIVAS <strong id="chances">3</strong></span>
+      </div>
+      <section class="stage" aria-label="Visita ao Salão 17">
+        <div class="scene-column">
+          <div class="scene-caption">
+            <span id="scene-number">00</span><span id="scene-name">ÁTRIO</span
+            ><span aria-hidden="true">S / 17</span>
+          </div>
+          <div id="art" class="art" aria-hidden="true"></div>
+          <div id="mechanism" class="mechanism">
+            AS PISTAS ESTÃO TAMBÉM NO TEXTO.
+          </div>
+        </div>
+        <div
+          class="reading"
+          id="play"
+          tabindex="0"
+          aria-label="Narrativa e escolhas"
+        >
+          <div class="chapter-line">
+            <span id="chapter">ANTES DA VISITA</span
+            ><span id="route-label">ROTA SOLO</span>
+          </div>
+          <h1 id="title">O museu guarda<br />a última palavra.</h1>
+          <div id="text" class="prose" aria-live="polite">
+            <p>A porta do Salão 17 se abre para quem lê o que ficou.</p>
+            <p>
+              Explore três salas, encontre os selos e decida o destino de um
+              caderno. Você tem três tentativas de validação — observar e voltar
+              não custa nada.
+            </p>
+            <p>
+              Sem cronômetro. As escolhas levam a dois finais de vitória ou a
+              uma visita interrompida.
+            </p>
+          </div>
+          <div
+            id="choices"
+            class="choices"
+            role="group"
+            aria-label="Suas escolhas"
+          >
+            <button id="begin" class="begin">
+              <span>01</span><span>Abrir a visita</span
+              ><span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <div id="ending" class="ending" hidden aria-label="Resultado">
+            <span id="ending-label"></span>
+            <p id="ending-detail"></p>
+          </div>
+          <p id="error" hidden role="alert">
+            Não foi possível continuar a narrativa. Reinicie a visita para
+            tentar novamente.
+          </p>
+        </div>
+      </section>
+      <div class="visit-tools">
+        <button id="notebook" disabled>
+          Caderno <span id="note-count">0</span> ↗</button
+        ><span id="steps">0 ESCOLHAS</span
+        ><button id="pause" disabled>Pausar [Esc]</button
+        ><button id="restart">Recomeçar visita ↺</button>
+      </div>
+      <p class="keyboard-help">
+        Clique/toque numa escolha ou use Tab/Enter. Com a narrativa focada,
+        números 1–9 escolhem e Escape pausa. Pedir pista marca a visita como
+        assistida.
+      </p>
+      <section class="records" aria-label="Resultados locais">
+        <span>ARQUIVO DE VISITAS / SOMENTE NESTE NAVEGADOR</span>
+        <p id="solo-record">Solo: 0 visitas · 0 finais de vitória · melhor —</p>
+        <p id="guided-record">
+          Com pista: 0 visitas · 0 finais de vitória · melhor —
+        </p>
+        <small
+          >A visita em andamento não é salva. Recarregar começa uma nova.</small
+        >
+      </section>
+      <footer>
+        <span>SALÃO 17 / TODA AUSÊNCIA DEIXA UM DESENHO.</span
+        ><span>HISTÓRIA FICTÍCIA. SEM CONTAS OU COMPRAS.</span>
+      </footer>
+      <dialog id="dialog">
+        <span class="eyebrow" id="dialog-label"></span>
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-body"></div>
+        <button id="resume" class="primary">Retomar visita ↗</button>
+      </dialog>
+    </main>
+    <noscript
+      >Ative JavaScript para explorar o Salão 17. Sem conta ou
+      compras.</noscript
+    >
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
