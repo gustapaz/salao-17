@@ -677,3 +677,8 @@ dialog .primary {
     line-height: 1.75;
   }
 }
+/* Replay is a single label rather than a numbered story choice. */
+.choices #replay {
+  display: block;
+  text-align: left;
+}

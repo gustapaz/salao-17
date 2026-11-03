@@ -90,3 +90,27 @@ test("Corrupt local saves are rejected", () => {
   ])
     assert.deepEqual(readSave(raw), blank());
 });
+test("Validation budget is shared across rooms and solved seals cannot be duplicated", () => {
+  const s = new Session();
+  pick(s, "Entrar na Galeria");
+  pick(s, "Validar os painéis");
+  assert.equal(s.frame.chances, 2);
+  pick(s, "Voltar aos painéis");
+  pick(s, "Voltar ao átrio");
+  pick(s, "Entrar na Oficina");
+  for (const n of [2, 3, 5]) pick(s, `Colocar ou retirar o peso ${n}`);
+  pick(s, "Validar a balança");
+  assert.equal(s.frame.chances, 1);
+  pick(s, "Voltar à balança");
+  pick(s, "Colocar ou retirar o peso 2");
+  pick(s, "Validar a balança");
+  assert.deepEqual(s.frame.seals, [false, false, true]);
+  pick(s, "Voltar ao átrio");
+  pick(s, "Entrar na Oficina");
+  assert.ok(!s.frame.choices.some(c => c.text === "Validar a balança"));
+  assert.equal(s.frame.chances, 1);
+  pick(s, "Voltar ao átrio");
+  pick(s, "Entrar no Arquivo");
+  pick(s, "Validar 742");
+  assert.equal(s.frame.status, "lost");
+});
